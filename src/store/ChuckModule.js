@@ -27,12 +27,14 @@ export const ChuckModule = {
     },
     actions: {
 
-        fetchRandomJoke(store) {
+        fetchRandomJoke(store, next) {
 
             ChuckService.getRandomeJoke()
                 .then((joke) => {
 
-                    store.commit('setRandomJoke', joke)
+                    store.commit('setRandomJoke', joke);
+
+                    next();
 
                 })
 
