@@ -1,11 +1,25 @@
-// import Axios from 'axios'
-//
-//
-// export default class ChuckService{
-//
-//
-// }
-//
-//
-//
-// export const chuckNorris = new ChuckService();
+import ChuckClient from 'chucknorris-io';
+
+
+class ChuckService{
+
+    constructor(){
+
+        this.client = new ChuckClient
+
+    }
+
+    getRandomeJoke(){
+
+        return this.client.getRandomJoke()
+
+    }
+
+}
+
+
+
+const chuckService = new ChuckService();
+
+// export with renaming
+export { chuckService as ChuckService }
