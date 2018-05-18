@@ -9,11 +9,17 @@ class ChuckService{
 
     }
 
-    getRandomeJoke(){
+    getRandomeJoke(category = ''){
 
-        return this.client.getRandomJoke()
+        return this.client.getRandomJoke(category)
 
     }
+
+    // getJokeCategories(){
+    //
+    //     return this.client.getJokeCategories()
+    //
+    // }
 
 }
 

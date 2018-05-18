@@ -4,7 +4,8 @@ export const ChuckModule = {
 
     state: {
 
-        randomJoke: null
+        randomJoke: null,
+        jokeCategory: ''
 
     },
     getters: {
@@ -13,7 +14,8 @@ export const ChuckModule = {
 
             return state.randomJoke
 
-        }
+        },
+
 
     },
     mutations: {
@@ -22,6 +24,12 @@ export const ChuckModule = {
 
             state.randomJoke = joke;
 
+        },
+
+        setJokeCategory(state, jokeCategory){
+
+            state.jokeCategory = jokeCategory
+
         }
 
     },
@@ -29,7 +37,7 @@ export const ChuckModule = {
 
         fetchRandomJoke(store, next) {
 
-            ChuckService.getRandomeJoke()
+            ChuckService.getRandomeJoke(store.state.jokeCategory)
                 .then((joke) => {
 
                     store.commit('setRandomJoke', joke);
@@ -38,7 +46,13 @@ export const ChuckModule = {
 
                 })
 
-        }
+        },
+
+        // getCategories(){
+        //
+        //     ChuckService.getJokeCategories()
+        //         .then
+        // }
 
     },
 
